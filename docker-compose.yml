@@ -1,0 +1,11 @@
+services:
+  ros_ws:
+    build:
+      context: .
+    environment:
+      - DISPLAY=host.docker.internal:0
+      - QT_X11_NO_MITSHM=1
+    restart: always
+    volumes:
+      - .:/workspace
+      - /tmp/.X11-unix:/tmp/.X11-unix
