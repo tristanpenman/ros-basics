@@ -162,3 +162,44 @@ Publishers:
 Subscribers: None
 ```
 
+## Messages
+
+The first custom message type is included in [src/basics/msg/Complex.msg](src/basics/msg/Complex.msg).
+
+After making any changes to this file, it is necessary to run `catkin_make` and re-source the development environment:
+
+```
+cd /workspace
+catkin_make
+source devel/setup.bash
+```
+
+### Publisher
+
+A message publisher can be started with:
+
+```
+rosrun basics message_publisher.py
+```
+
+The topic that it publishes to (`/complex`) can be found using `rostopic`:
+
+```
+# rostopic list
+/complex
+/counter
+/rosout
+/rosout_agg
+```
+
+The echoed out:
+
+```
+# rostopic echo /complex
+real: 0.40951746702194214
+imaginary: 0.8779112100601196
+---
+real: 0.7505609393119812
+imaginary: 0.6022706031799316
+...
+```
