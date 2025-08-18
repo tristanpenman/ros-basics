@@ -121,3 +121,44 @@ The output of both processes will be interlaced:
 ```
 
 The `roslaunch` command will also start `roscore` if it has not been started already.
+
+## Python
+
+### Publisher
+
+```
+import rospy
+
+from std_msgs.msg import Int32
+
+
+rospy.init_node('topic_publisher')
+
+pub = rospy.Publisher('counter', Int32, queue_size=100)
+rate = rospy.Rate(2)
+count = 0
+while not rospy.is_shutdown():
+    pub.publish(count)
+    count += 1
+    rate.sleep()
+
+```
+
+### Verification
+
+```
+rostopic echo counter -n 5
+```
+
+We can also see which nodes are publishing or subscribed:
+
+```
+$ rostopic info counter
+Type: std
+_
+msgs/Int32
+Publishers:
+  * /topic_publisher (http://hostname:39964/)
+Subscribers: None
+```
+
