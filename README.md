@@ -1,8 +1,14 @@
 # ROS Basics
 
-This repo contains example code for ROS 1, based on the book [Programming Robots with ROS]().
+This repo contains example code for ROS 1, based on the book [Programming Robots with ROS](https://www.oreilly.com/library/view/programming-robots-with/9781449325480/).
 
 ## Initial Setup
+
+Build the Docker container:
+
+```
+docker compose build
+```
 
 Start the ROS docker container:
 
